@@ -30,6 +30,7 @@
 
 <details>
 	<summary>1. Геймпад Flydigi Vader 4 Pro (6к)</summary>
+	
 > Периодически играю на геймпаде в игрушки и хочу делать это с максимальным комфортом. Судя по обзорам, этот геймпад нереально крут и даже лучше оригинального xbox, поэтому однозначно хочу. [Купить можно на озоне](https://www.ozon.ru/product/flydigi-vader-4-pro-besprovodnoy-krossplatformennyy-geympad-pc-android-ios-nintendo-switch-1667001350/)	
 </details>
 
