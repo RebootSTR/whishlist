@@ -29,9 +29,15 @@
 `Список отсортирован по приоритету, желанию. Выше - сильнее хочу`
 
 <details>
-	<summary>1. Геймпад Flydigi Vader 4 Pro (6к)</summary>
+	<summary>1. Геймпад Flydigi APEX 4 (9к) ИЛИ Flydigi Vader 4 Pro (6к)</summary>
 	
-> Периодически играю на геймпаде в игрушки и хочу делать это с максимальным комфортом. Судя по обзорам, этот геймпад нереально крут и даже лучше оригинального xbox, поэтому однозначно хочу. [Купить можно на озоне](https://www.ozon.ru/product/flydigi-vader-4-pro-besprovodnoy-krossplatformennyy-geympad-pc-android-ios-nintendo-switch-1667001350/)	
+> Периодически играю на геймпаде в игрушки и хочу делать это с максимальным комфортом. Судя по обзорам, эти геймпады нереально круты и даже лучше оригинального xbox, поэтому однозначно хочу один из них. Разница между дорогим и дешевым, конечно же есть) Выбор зависит от твоего кошелька и желания порадовать (больше эстетического удовольствия я получу от дорогого) 
+
+>Купить можно на озоне:
+
+> - [Flydigi APEX 4](https://www.ozon.ru/product/flydigi-apex-4-besprovodnoy-krossplatformennyy-geympad-pc-android-ios-switch-1443872702/)
+
+> - [Flydigi Vader 4 Pro](https://www.ozon.ru/product/flydigi-vader-4-pro-besprovodnoy-krossplatformennyy-geympad-pc-android-ios-nintendo-switch-1667001350/)	
 </details>
 
 <details>
