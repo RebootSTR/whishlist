@@ -191,21 +191,29 @@
     padding-left: 30px; /* Отступ для иконки */
 }
 
+/* Убираем стандартный маркер в Safari */
+#markdownContent summary::-webkit-details-marker {
+    display: none;
+}
+
 /* Иконка раскрытия/сворачивания */
 #markdownContent summary::before {
-    content: "▶"; /* Иконка треугольника */
+    content: "";
     position: absolute;
     left: 10px;
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.8em;
-    color: #2c3e50;
+    transform: translateY(-55%) rotate(-90deg);
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg enable-background="new 0 0 32 32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="Layer_1"><path d="m29.6043 10.528-12.0735 12.8281c-.83.8819-2.2315.8819-3.0615 0l-12.0736-12.8281c-.9071-.9639-.2238-2.5455 1.0998-2.5455h25.0089c1.3237 0 2.007 1.5816 1.0999 2.5455z" fill="rgb(0,0,0)"/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
     transition: transform 0.2s ease;
 }
 
 /* Анимация иконки при раскрытии */
 #markdownContent details[open] summary::before {
-    transform: translateY(-50%) rotate(90deg); /* Поворачиваем иконку */
+    transform: translateY(-50%) rotate(0deg); /* Поворачиваем иконку */
 }
 
 /* Стили для контента внутри details */
