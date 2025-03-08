@@ -1,0 +1,268 @@
+/* Общие стили для Markdown-контента */
+#markdownContent {
+    max-width: 1200px; /* Увеличиваем ширину */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1rem; /* Базовый размер текста */
+}
+
+/* Заголовки */
+#markdownContent h1 {
+    font-size: 2rem; /* Используем rem для адаптивности */
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#markdownContent h2 {
+    font-size: 1.75rem;
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#markdownContent h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#markdownContent h4 {
+    font-size: 1.25rem;
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#markdownContent h5 {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#markdownContent h6 {
+    font-size: 1rem;
+    color: #34495e;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* Параграфы */
+#markdownContent p {
+    margin: 1em 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Списки */
+#markdownContent ul,
+#markdownContent ol {
+    margin: 1em 0;
+    padding-left: 20px;
+}
+
+#markdownContent ul {
+    list-style-type: disc;
+}
+
+#markdownContent ol {
+    list-style-type: decimal;
+}
+
+#markdownContent li {
+    margin: 0.5em 0;
+    color: #555;
+}
+
+/* Ссылки */
+#markdownContent a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+#markdownContent a:hover {
+    text-decoration: underline;
+}
+
+/* Цитаты */
+#markdownContent blockquote {
+    margin: 1em 0;
+    padding: 10px 20px;
+    background-color: #ecf0f1;
+    border-left: 5px solid #bdc3c7;
+    color: #555;
+    font-style: italic;
+}
+
+/* Код */
+#markdownContent code {
+    font-family: "Courier New", monospace;
+    background-color: #ecf0f1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #e74c3c;
+}
+
+#markdownContent pre {
+    background-color: #2d2d2d;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+#markdownContent pre code {
+    background-color: transparent;
+    color: #f8f8f2;
+    padding: 0;
+}
+
+/* Изображения */
+#markdownContent img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1em 0;
+}
+
+/* Горизонтальные линии */
+#markdownContent hr {
+    border: 0;
+    height: 1px;
+    background-color: #bdc3c7;
+    margin: 2em 0;
+}
+
+/* Таблицы */
+#markdownContent table {
+    width: 100%; /* Таблица занимает всю доступную ширину */
+    border-collapse: collapse; /* Убираем двойные границы */
+    margin: 1em 0;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку, если таблица слишком широкая */
+    display: block; /* Делаем таблицу блочным элементом для прокрутки */
+}
+
+#markdownContent th,
+#markdownContent td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Границы ячеек */
+    text-align: left;
+}
+
+#markdownContent th {
+    background-color: #f2f2f2; /* Фон заголовков */
+    font-weight: bold;
+    color: #333;
+}
+
+#markdownContent tr:nth-child(even) {
+    background-color: #f9f9f9; /* Зебра для строк */
+}
+
+#markdownContent tr:hover {
+    background-color: #f1f1f1; /* Эффект при наведении */
+}
+
+/* Стили для выпадающих списков (details/summary) */
+#markdownContent details {
+    margin: 1em 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#markdownContent summary {
+    font-weight: bold;
+    color: #2c3e50;
+    list-style: none; /* Убираем стандартный маркер */
+    position: relative;
+    padding-left: 30px; /* Отступ для иконки */
+}
+
+/* Иконка раскрытия/сворачивания */
+#markdownContent summary::before {
+    content: "▶"; /* Иконка треугольника */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: #2c3e50;
+    transition: transform 0.2s ease;
+}
+
+/* Анимация иконки при раскрытии */
+#markdownContent details[open] summary::before {
+    transform: translateY(-50%) rotate(90deg); /* Поворачиваем иконку */
+}
+
+/* Стили для контента внутри details */
+#markdownContent details > *:not(summary) {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #3498db;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    #markdownContent {
+        padding: 15px;
+        font-size: 1.1rem; /* Увеличиваем базовый размер текста на мобильных устройствах */
+    }
+
+    #markdownContent h1 {
+        font-size: 2.2rem; /* Увеличиваем заголовки */
+    }
+
+    #markdownContent h2 {
+        font-size: 1.9rem;
+    }
+
+    #markdownContent h3 {
+        font-size: 1.6rem;
+    }
+
+    #markdownContent h4 {
+        font-size: 1.3rem;
+    }
+
+    #markdownContent h5 {
+        font-size: 1.15rem;
+    }
+
+    #markdownContent h6 {
+        font-size: 1.05rem;
+    }
+
+    #markdownContent p {
+        font-size: 1.1rem; /* Увеличиваем размер текста параграфов */
+    }
+
+    #markdownContent table {
+        font-size: 0.9rem; /* Уменьшаем размер текста в таблицах для лучшего отображения */
+    }
+	
+	#markdownContent details {
+        padding: 8px;
+    }
+
+    #markdownContent summary {
+        font-size: 1.1em;
+    }
+
+    #markdownContent summary::before {
+        font-size: 0.9em;
+    }
+}

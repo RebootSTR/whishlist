@@ -1,0 +1,55 @@
+/* Основные стили для шапки */
+header {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+}
+
+#loginButton {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loginButton:hover {
+    background-color: #0056b3;
+}
+
+#userInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#userName {
+    font-size: 16px;
+    color: #333;
+}
+
+#userPhoto {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
