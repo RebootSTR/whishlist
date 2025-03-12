@@ -1,5 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { auth } from "../configs/firebase-config.js";  // Импортируем уже инициализированный auth
+import * as TEXT from "../constants/text.js";
 
 // Функция для входа через Google с поддержкой мобильных устройств
 export function runLogin() {
@@ -41,17 +42,17 @@ export function runCheckAuth() {
 
 function onSuccess(user) {
 	console.log(user);
-	document.getElementById("userName").innerHTML = user.displayName
-	document.getElementById("userPhoto").src = user.photoURL
-	document.getElementById("loginButton").style.display = "none";
-	document.getElementById("userInfo").style.display = "";
+	document.getElementById(TEXT.DOM_IDS.USER_NAME).innerHTML = user.displayName
+	document.getElementById(TEXT.DOM_IDS.USER_PHOTO).src = user.photoURL
+	document.getElementById(TEXT.DOM_IDS.LOGIN_BUTTON).style.display = "none";
+	document.getElementById(TEXT.DOM_IDS.USER_INFO).style.display = "";
 }
 
 function onNotLogged() {
-	document.getElementById("loginButton").style.display = "";
+	document.getElementById(TEXT.DOM_IDS.LOGIN_BUTTON).style.display = "";
 }
 
 function onError(error) {
-	alert("Ошибка входа");
+	alert(TEXT.AUTH_ERROR_MESSAGE);
 	console.log(error);
 }
