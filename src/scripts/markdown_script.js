@@ -43,7 +43,7 @@ renderer.paragraph = function(obj) {
 	}
 	
 	// Стандартная обработка параграфа
-	return `<p>${text}</p>`;
+	return `<p>${marked.parseInline(text, { renderer })}</p>`;
 };
 
 export async function runLoadMarkdown() {
