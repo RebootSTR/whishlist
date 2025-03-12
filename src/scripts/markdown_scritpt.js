@@ -9,29 +9,36 @@ const renderer = new marked.Renderer();
 renderer.paragraph = function(obj) {
 	// Извлекаем текст из объекта
 	const text = obj.text;
-
+	
 	// Обработка синтаксиса для <details> и <summary>
 	if (text.startsWith('<+')) {
-		// Собираем строки для summary
+		// Разделяем текст на строки
+		const lines = text.split('\n');
 		const summaryLines = [];
-		let currentText = text;
-		while (currentText.startsWith('<+')) {
-			summaryLines.push(currentText.slice(2).trim());
-			const nextObj = this.next();
-			currentText = nextObj ? nextObj.text : '';
-		}
-		
-		// Собираем строки для details
 		const detailsLines = [];
-		while (currentText.startsWith('<')) {
-			detailsLines.push(currentText.slice(1).trim());
-			const nextObj = this.next();
-			currentText = nextObj ? nextObj.text : '';
+		let isSummary = true;
+
+		// Обрабатываем каждую строку
+		for (const line of lines) {
+			if (line.startsWith('<+')) {
+				summaryLines.push(line.slice(2).trim());
+			} else if (line.startsWith('<')) {
+				isSummary = false;
+				detailsLines.push(line.slice(1).trim());
+			} else if (isSummary) {
+				summaryLines.push(line.trim());
+			} else {
+				detailsLines.push(line.trim());
+			}
 		}
-		
+
+		// Обрабатываем строки с помощью marked
+		const summaryHtml = marked.parseInline(summaryLines.join('<br>'), { renderer });
+		const detailsHtml = marked.parseInline(detailsLines.join('<br>'), { renderer });
+
 		// Формируем HTML
-		const summary = `<summary>${summaryLines.join('<br>')}</summary>`;
-		const details = `<div>${detailsLines.join('<br>')}</div>`;
+		const summary = `<summary>${summaryHtml}</summary>`;
+		const details = `<div>${detailsHtml}</div>`;
 		return `<details>${summary}${details}</details>`;
 	}
 	
