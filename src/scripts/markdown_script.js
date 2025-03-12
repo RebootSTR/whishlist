@@ -1,5 +1,5 @@
 import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
-import { createTagButton, addTagButtonListeners } from './tagButton.js';
+import { createTagButton, addTagButtonListeners, bookingRegex } from './bookingButton.js';
 import * as TEXT from "../constants/text.js";
 
 // Настраиваем пользовательский рендерер
@@ -37,7 +37,7 @@ renderer.paragraph = function(obj) {
 		const detailsHtml = marked.parseInline(detailsLines.join('<br>'), { renderer });
 
 		// Формируем HTML
-		const summary = `<summary>${summaryHtml}</summary>`;
+		const summary = `<summary>${handleTagButton(summaryHtml)}</summary>`;
 		const details = `<div>${detailsHtml}</div>`;
 		return `<details>${summary}${details}</details>`;
 	}
@@ -48,8 +48,15 @@ renderer.paragraph = function(obj) {
 
 export async function runLoadMarkdown() {
 	try {
-		const response = await fetch(TEXT.MARKDOWN_CONTENT_URL);
-		const markdownText = await response.text();
+		let markdownText = "";
+		const localResponse = await fetch(TEXT.LOCAL_MARKDOWN_CONTENT_URL);
+		if (localResponse.ok) {
+			markdownText = await localResponse.text();
+		} else {
+			const response = await fetch(TEXT.MARKDOWN_CONTENT_URL);
+			markdownText = await response.text();
+		}
+
 		const htmlContent = marked.parse(markdownText, { renderer });
 		document.getElementById(TEXT.DOM_IDS.MARKDOWN_CONTENT).innerHTML = htmlContent;
 		
@@ -59,4 +66,13 @@ export async function runLoadMarkdown() {
 		console.error('Ошибка при загрузке Markdown:', error);
 		document.getElementById(TEXT.DOM_IDS.MARKDOWN_CONTENT).innerHTML = `<p>${TEXT.CONTENT_LOAD_ERROR_MESSAGE}</p>`;
 	}
+}
+
+function handleTagButton(htmlText) {
+	// Находим все вхождения [booking:some_tag] в тексте
+	// Заменяем найденные вхождения на кнопки
+	const replacedHtml = htmlText.replace(bookingRegex, (match, tag) => {
+		return createTagButton(tag);
+	});
+	return replacedHtml;
 }
