@@ -1,4 +1,5 @@
 import * as TEXT from "../constants/text.js";
+import { addBooking } from "./databaseController.js";
 
 export const bookingRegex = /\[booking:([^\]]+)\]/g;
 
@@ -41,4 +42,5 @@ export function handleBookingButtonClick(event) {
         return
     }
     alert(`Кликнута кнопка с тегом: ${tag}`);
+    addBooking(tag);
 }

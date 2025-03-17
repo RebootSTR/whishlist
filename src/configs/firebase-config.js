@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getState } from "../scripts/state.js";
 
 const githubUrl = "rebootstr.github.io"
 const authPort = window.location.port ? `:${window.location.port}` : ''
@@ -20,3 +22,6 @@ const app = initializeApp(firebaseConfig);
 
 // Инициализируем Auth и сразу экспортируем
 export const auth = getAuth(app);
+
+// Инициализируем Database
+export const database = getDatabase(app);

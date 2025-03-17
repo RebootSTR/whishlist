@@ -18,9 +18,6 @@ export function runLogin() {
     } else {
         // Для десктопов продолжаем использовать popup
         signInWithPopup(auth, provider)
-            .then((result) => {
-                onSuccess(result.user);
-            })
             .catch((error) => {
                 onError(error);
             });
@@ -30,16 +27,17 @@ export function runLogin() {
 export function runCheckAuth() {
 	// Обрабатываем результат после редиректа
 	getRedirectResult(auth)
-		.then((result) => {
-			if (result) {
-				onSuccess(result.user);
-			} else {
-				onNotLogged();
-			}
-		})
 		.catch((error) => {
 			onError(error);
 		});
+		
+	auth.onAuthStateChanged(user=>{
+		if (user) {
+			onSuccess(user);
+		} else {
+			onNotLogged();
+		}
+	})
 }
 
 function onSuccess(user) {
@@ -52,6 +50,7 @@ function onSuccess(user) {
 	updateState((prevState) => ({
 		...prevState,
 		isLoggedIn: true,
+		userId: user.uid,
 	}));
 
 	updateBookingButtons();
@@ -59,6 +58,7 @@ function onSuccess(user) {
 
 function onNotLogged() {
 	document.getElementById(TEXT.DOM_IDS.LOGIN_BUTTON).style.display = "";
+	document.getElementById(TEXT.DOM_IDS.USER_INFO).style.display = "none";
 }
 
 function onError(error) {
