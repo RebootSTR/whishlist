@@ -12,3 +12,14 @@ export function updateState(updater) {
 export function getState() {
   return window.pageState;
 } 
+
+export function resetState() {
+    updateState((prevState) => ({
+        ...prevState,
+        isLoggedIn: false,
+        userId: null,
+        bookedIds: {},
+    }));
+}
+
+

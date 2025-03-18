@@ -186,9 +186,13 @@
 #markdownContent summary {
     font-weight: bold;
     color: #2c3e50;
-    list-style: none; /* Убираем стандартный маркер */
+    list-style: none;
     position: relative;
-    padding-left: 30px; /* Отступ для иконки */
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* Убираем стандартный маркер в Safari */
@@ -213,7 +217,7 @@
 
 /* Анимация иконки при раскрытии */
 #markdownContent details[open] summary::before {
-    transform: translateY(-50%) rotate(0deg); /* Поворачиваем иконку */
+    transform: translateY(-50%) rotate(0deg);
 }
 
 /* Стили для контента внутри details */
@@ -268,9 +272,19 @@
 
     #markdownContent summary {
         font-size: 1.1em;
+        flex-wrap: wrap;
+        padding-left: 25px;
+        min-height: 2.5em;
     }
 
     #markdownContent summary::before {
         font-size: 0.9em;
+        left: 5px;
+        top: 0.8em;
+        transform: translateY(0) rotate(-90deg);
+    }
+
+    #markdownContent details[open] summary::before {
+        transform: translateY(0) rotate(0deg);
     }
 }

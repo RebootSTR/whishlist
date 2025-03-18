@@ -3,6 +3,7 @@ import { auth } from "../configs/firebase-config.js";  // Импортируем
 import * as TEXT from "../constants/text.js";
 import { updateState } from "./state.js";
 import { updateBookingButtons } from "./bookingButton.js";
+import { startBookingsListener } from "./databaseController.js";
 
 // Функция для входа через Google с поддержкой мобильных устройств
 export function runLogin() {
@@ -54,6 +55,7 @@ function onSuccess(user) {
 	}));
 
 	updateBookingButtons();
+	startBookingsListener();
 }
 
 function onNotLogged() {

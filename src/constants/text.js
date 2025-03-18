@@ -8,7 +8,10 @@ export const CONTENT_LOAD_ERROR_MESSAGE = "Не удалось загрузит�
 export const MARKDOWN_CONTENT_URL = "https://raw.githubusercontent.com/RebootSTR/whishlist/refs/heads/master/whishlist.md";
 export const LOCAL_MARKDOWN_CONTENT_URL = `${window.location.origin}/configs/local_whishlist.md`;
 
-export const BOOKING_TAG_BUTTON_TEXT = "Забронировать";
+export const BOOKING_BUTTON_CAN_BOOK = "Забронировать";
+export const BOOKING_BUTTON_BOOKED = "Подарок забронирован";
+export const BOOKING_BUTTON_SELF_BOOKED = "Вы забронировали подарок";
+export const BOOKING_BUTTON_REMOVE_BOOKING = "Снять бронь";
 
 // ID элементов DOM
 export const DOM_IDS = {
@@ -18,5 +21,5 @@ export const DOM_IDS = {
     USER_INFO: "userInfo",
     MARKDOWN_CONTENT: "markdownContent",
     BOOKING_BUTTON_TAG: "data-tag",
-    BOOKING_BUTTON_INACTIVE: "data-inactive"
+    BOOKING_BUTTON_MODE: "data-mode"
 }; 
